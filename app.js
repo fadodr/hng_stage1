@@ -1,4 +1,5 @@
 const http = require('http');
+require('dotenv').config()
 
 const server = http.createServer((req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -21,7 +22,8 @@ const server = http.createServer((req, res) => {
     res.end();
 });
 
+const port = process.env.PORT || 3000
 
-server.listen(3000, () => {
-    console.log('application now running on port 3000')
+server.listen(port, () => {
+    console.log(`running on port ${port}`)
 });
